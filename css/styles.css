@@ -25,7 +25,7 @@ body
   line-height: 1.5;
   font-family: Arial, sans-serif;
   letter-spacing: 0.5px;
-  background-color: #fff;
+  background-color: lightblue;
   color: #222;
 }
 img
@@ -63,6 +63,9 @@ select:-webkit-autofill:focus {
 .container
 {
   width: 100%;
+  max-width: 1440px;
+  padding-left:  50px;
+  padding-right: 50px;
   margin-right: auto;
   margin-left: auto;
 }
@@ -71,4 +74,130 @@ select:-webkit-autofill:focus {
 .main-content
 {
   flex-grow: 1;
+}
+
+.stadium{
+  position: relative;
+  display: flex;
+  justify-content: center;
+  width: 1320px;
+  height: 670px;
+  background-color: brown;
+  transform: perspective(2000px) rotateX(50deg);
+}
+.stadium__border{
+  width: calc(1320px / 3);
+  height: 100%;
+  border: 8px solid #fff;
+  border-top: none;
+  border-bottom: none;
+}
+.stadium__border img{
+  transform: rotate(90deg) scaleX(1.7) scaleY(0.7) translateX(65px) translateY(-60px) skewX(40deg) perspective(2000px)  rotateX(-65deg);
+}
+
+
+.player-left {
+  position: absolute;
+  left: 325px;
+  top: 250px;
+  display: block;
+  animation: run-left 2s infinite;
+  z-index: 5;
+}
+.head {
+  width: 30px;
+  height: 30px;
+  background-color: lightseagreen;
+  border-radius: 50%;
+  margin-bottom: 5px;
+}
+.body {
+  background-color: lightseagreen;
+  width: 35px;
+  height: 85px;
+  border-radius: 15px;
+  padding-top: 15px;
+}
+.hand {
+  background-color: lightseagreen;
+  width: 40px;
+  height: 20px;
+  border-radius: 15px;
+  margin-left: 15px;
+}
+
+.legs{
+  display: flex;
+  justify-content: center;
+  padding-top: 35px;
+}
+.legs-left {
+  width: 13px;
+  height: 70px;
+  background-color: lightseagreen;
+  border-radius: 15px;
+  margin-right: 2px;
+  animation: mymove-left 0.3s infinite;
+}
+.legs-right {
+  background-color: lightseagreen;
+  width: 13px;
+  height: 70px;
+  border-radius: 15px;
+  animation: mymove 0.3s infinite;
+}
+
+.player-right{
+  position: absolute;
+  top: 250px;
+  right: 75px;
+  animation: run-right 2s infinite;
+  z-index: 5;
+}
+
+.player-right *{
+  background-color: lightgreen;
+}
+.player-right .legs{
+  background-color: transparent;
+}
+
+.player-right .hand{
+  margin-left: -20px;
+}
+
+.ball{
+  position: absolute;
+  top: 280px;
+  left: 350px;
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+  background-image: url(../img/ball.png);
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center center;
+  transition: transform 0.5s ease;
+  animation: ball-run 2s infinite;
+  z-index: 1;
+}
+
+@keyframes mymove {
+  50% {transform: rotate(-5deg);}
+}
+@keyframes mymove-left {
+  50% {transform: rotate(5deg);}
+}
+
+@keyframes run-left {
+  50% {transform: translateX(-250px);}
+}
+
+@keyframes run-right {
+  50% {transform: translateX(-250px);}
+}
+
+@keyframes ball-run {
+  50% {transform: rotate(90deg) translateY(-600px);}
 }
